@@ -1,0 +1,22 @@
+{
+  "name": "reslark",
+  "version": "0.1.0",
+  "description": "AI-friendly CLI for capturing, tracing and downloading application resources with mitmdump.",
+  "type": "module",
+  "bin": { "reslark": "bin/reslark.js" },
+  "exports": { ".": "./src/index.js" },
+  "files": ["bin/reslark.js", "src/*.js", "addon/reslark.py", "docs/*.md", "LICENSE", "README.md"],
+  "engines": { "node": ">=22.15.0" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:integration": "node --test test/integration/*.test.js",
+    "check": "node --check bin/reslark.js && node --test test/*.test.js",
+    "prepublishOnly": "npm run check"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/huhuanming/reslark.git" },
+  "homepage": "https://github.com/huhuanming/reslark#readme",
+  "bugs": { "url": "https://github.com/huhuanming/reslark/issues" },
+  "keywords": ["cli", "ai", "mitmproxy", "mitmdump", "capture", "download", "resources"],
+  "license": "MIT",
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
+}
