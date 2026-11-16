@@ -16,9 +16,9 @@ test('npm tarball installs without dependencies and its bundled addon starts a r
   assert.equal(packed.files.some((item) => /__pycache__|\.pyc$|\.tools|\.state/.test(item.path)), false);
   const installed = path.join(directory, 'installed');
   await exec('npm', ['install', '--prefix', installed, '--ignore-scripts', '--no-audit', '--no-fund', path.join(directory, packed.filename)]);
-  const executable = path.join(installed, 'node_modules/reslark/bin/reslark.js');
+  const executable = path.join(installed, 'node_modules/reslark-capture/bin/reslark.js');
   const cli = async (...args) => JSON.parse((await exec(process.execPath, [executable, ...args, '--home', path.join(directory, 'home'), '--json'], { timeout: 35000 })).stdout);
-  assert.equal((await cli('--version')).package, 'reslark');
+  assert.equal((await cli('--version')).package, 'reslark-capture');
   const session = await cli('capture', '--domain', 'example.com', '--out', path.join(directory, 'out'), '--background');
   t.after(() => cli('stop', session.session_id, '--no-drain').catch(() => {}));
   assert.equal(session.state, 'ready'); assert.equal((await cli('stop', session.session_id)).state, 'stopped');

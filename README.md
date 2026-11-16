@@ -19,12 +19,12 @@ npm ci
 node bin/reslark.js doctor --json
 ```
 
-npm 首次发布完成后可使用：
+通过 npm 安装（包名 `reslark-capture`，命令名 `reslark`）：
 
 ```bash
-npm install -g reslark
+npm install -g reslark-capture
 # 或者
-npx reslark --help
+npx reslark-capture --help
 ```
 
 本仓库包含 npm 发布配置，但提交到 GitHub 不会自动发布 npm 包。发布说明见 [docs/RELEASING.md](docs/RELEASING.md)。

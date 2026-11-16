@@ -1,6 +1,6 @@
 # npm 发布
 
-包名和命令均为 `reslark`，源码仓库为 `huhuanming/reslark`。GitHub push 和 CI 不会发布 npm。
+npm 包名为 `reslark-capture`，命令为 `reslark`，源码仓库为 `huhuanming/reslark`。GitHub push 和 CI 不会发布 npm。
 
 ## 本地检查
 
@@ -10,14 +10,14 @@ npm run check
 RESLARK_MITMDUMP=/absolute/path/to/mitmdump npm run test:integration
 npm pack --dry-run
 npm pack
-npm exec --yes --package ./reslark-0.1.0.tgz -- reslark --version
+npm exec --yes --package ./reslark-capture-0.1.0.tgz -- reslark --version
 ```
 
 确认 tarball 包含 `addon/reslark.py`，且不包含 `.tools`、`.state`、CA 或捕获结果。
 
 ## 首次发布
 
-首次发布需要有权注册 `reslark` 的 npm 账号，并完成 npm 要求的认证/二次验证。仓库创建者身份不等于 npm 账号身份。先检查包名仍可用，再由发布者执行：
+首次发布需要有权注册 `reslark-capture` 的 npm 账号，并完成 npm 要求的认证/二次验证。仓库创建者身份不等于 npm 账号身份。先检查包名仍可用，再由发布者执行：
 
 ```bash
 npm login

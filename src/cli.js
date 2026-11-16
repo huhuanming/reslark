@@ -142,7 +142,7 @@ export async function main(argv = process.argv.slice(2)) {
   catch (error) { invalid(error.message); }
   const { values, positionals } = parsed; const [command, subject] = positionals;
   const print = (value) => { process.stdout.write(`${JSON.stringify({ schema_version: 1, ...value }, null, values.json ? 0 : 2)}\n`); };
-  if (values.version) { print({ name: 'Reslark', package: 'reslark', version: '0.1.0' }); return; }
+  if (values.version) { print({ name: 'Reslark', package: 'reslark-capture', version: '0.1.0' }); return; }
   if (values.help || !command) { if (values.json) print({ help: HELP }); else process.stdout.write(HELP); return; }
   if (allowedOptions[command]) {
     const allowed = new Set(['home', 'json', 'help', 'version', ...allowedOptions[command]]);

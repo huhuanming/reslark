@@ -1,5 +1,5 @@
 {
-  "name": "reslark",
+  "name": "reslark-capture",
   "version": "0.1.0",
   "description": "AI-friendly CLI for capturing, tracing and downloading application resources with mitmdump.",
   "type": "module",

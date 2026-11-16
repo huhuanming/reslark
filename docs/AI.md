@@ -2,6 +2,8 @@
 
 Reslark is an external-process CLI. It has no npm runtime dependencies. Capture requires mitmdump; direct HTTP(S) downloads do not. Inspect `reslark --help` for the executable interface.
 
+Install the npm package `reslark-capture` with `npm install -g reslark-capture`, or use `npx reslark-capture`. The installed executable is named `reslark`.
+
 ## Recommended procedure
 
 1. Run `reslark doctor --json`. If `mitmdump.available` is false, report the missing executable or provide `--mitmdump`. Do not assume a successful Node installation means capture works.
