@@ -34,7 +34,10 @@ export async function manageCert(home, action, { system = false, mitmdump } = {}
   if (process.platform === 'darwin') {
     const keychain = system ? '/Library/Keychains/System.keychain' : path.join(os.homedir(), 'Library/Keychains/login.keychain-db');
     if (action === 'install') await exec('security', ['add-trusted-cert', ...(system ? ['-d'] : []), '-r', 'trustRoot', '-k', keychain, certificate.path]);
-    else await exec('security', ['delete-certificate', '-Z', certificate.fingerprint.replaceAll(':', ''), keychain]);
+    else {
+      await exec('security', ['remove-trusted-cert', ...(system ? ['-d'] : []), certificate.path]);
+      await exec('security', ['delete-certificate', '-Z', certificate.fingerprint256.replaceAll(':', ''), keychain]);
+    }
   } else if (process.platform === 'win32') {
     await exec('certutil', [...(system ? [] : ['-user']), ...(action === 'install' ? ['-addstore', 'Root', certificate.path] : ['-delstore', 'Root', certificate.fingerprint.replaceAll(':', '')])]);
   } else if (process.platform === 'linux') {
